@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace game
 {
@@ -6,7 +7,14 @@ namespace game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var stateRegister = new StateRegister();
+            var gameStates = stateRegister.Register();
+
+            foreach (var state in gameStates){
+                Console.WriteLine(state.Message);
+                var input = Console.ReadLine();
+                Console.WriteLine(":> " + input);
+            }
         }
     }
 }
