@@ -6,24 +6,27 @@ namespace game
     {
         public State Register(){
 
-            var gameStates = new List<State>();
+            var dieState = new State {
+                Messages = new string[]{ "Você morreu!" },
+                NodeOne = new State(),
+                End = true
+            };
 
-            gameStates.Add(new State { 
+            var childhoodState = new State {
+                Messages = new string[]{ "'Brincar' com o palhaço ou andar de 'patinete'?" },
+                OptionOne = "brincar",
+                NodeOne = dieState,
+            };
+
+            var initalState = new State { 
                 Messages = new string[]{ ":: Livre arbitrio :: ", "'Sair' da barriga ou 'ficar'?" }, 
                 OptionOne = "sair",
-                NodeOne = new State {
-                    Messages = new string[]{ "" },
-                    OptionOne = ""
-                },
+                NodeOne = childhoodState,
                 OptionTwo = "ficar",
-                NodeTwo = new State {
-                    Messages = new string[]{ "Você morreu!" },
-                    NodeOne = new State(),
-                    End = true
-                }
-            });
+                NodeTwo = dieState
+            };
 
-            return gameStates[0];
+            return initalState;
         }
     }
 }
