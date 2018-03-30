@@ -8,13 +8,17 @@ namespace game
         static void Main(string[] args)
         {
             var stateRegister = new StateRegister();
-            var gameStates = stateRegister.Register();
             var player = new Player();
 
-            foreach (var state in gameStates){
-                Console.WriteLine(state.Message);
-                player.Name = Console.ReadLine();
-                Console.WriteLine(":> " + player.Name);
+            var currentState = stateRegister.Register();
+            while(currentState.NodeOne != null || currentState.NodeTwo != null)
+            {
+                foreach (var message in currentState.Messages){
+                    Console.WriteLine(message);
+                }
+
+                currentState.Input();
+                currentState = currentState.GetNext();
             }
         }
     }
