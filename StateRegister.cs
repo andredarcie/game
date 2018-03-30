@@ -12,7 +12,13 @@ namespace game
                 End = true
             };
 
-            var oldState = new State();
+            var oldState = new State {
+                Messages = new string[] { "'Esperar' a morte tentar ser 'feliz'" },
+                OptionOne = "esperar",
+                NodeOne = dieState,
+                OptionTwo = "feliz",
+                NodeTwo = dieState
+            };
 
             var workerState = new State {
                 Messages = new string[] { "'Trabalhar' muito pedir 'demissão'" },
