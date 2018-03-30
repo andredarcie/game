@@ -9,11 +9,12 @@ namespace game
         {
             var stateRegister = new StateRegister();
             var gameStates = stateRegister.Register();
+            var player = new Player();
 
             foreach (var state in gameStates){
                 Console.WriteLine(state.Message);
-                var input = Console.ReadLine();
-                Console.WriteLine(":> " + input);
+                player.Name = Console.ReadLine();
+                Console.WriteLine(":> " + player.Name);
             }
         }
     }
