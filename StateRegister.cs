@@ -12,7 +12,14 @@ namespace game
                 Messages = new string[]{ ":: Livre arbitrio :: ", "'Sair' da barriga ou 'ficar'?" }, 
                 OptionOne = "sair",
                 NodeOne = new State {
-                    Messages = new string[]{ "Digite seu nome:" }
+                    Messages = new string[]{ "" },
+                    OptionOne = ""
+                },
+                OptionTwo = "ficar",
+                NodeTwo = new State {
+                    Messages = new string[]{ "Você morreu!" },
+                    NodeOne = new State(),
+                    End = true
                 }
             });
 

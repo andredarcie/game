@@ -10,6 +10,7 @@ namespace game
         public State NodeOne { get; set; }
         public string OptionTwo { get; set; }
         public State NodeTwo { get; set; } 
+        public bool End { get; set; }
 
         public void Input(){
             ChosenOption = Console.ReadLine(); 

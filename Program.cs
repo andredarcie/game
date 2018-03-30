@@ -17,6 +17,8 @@ namespace game
                     Console.WriteLine(message);
                 }
 
+                if (currentState.End) return;
+
                 currentState.Input();
                 currentState = currentState.GetNext();
             }
