@@ -12,10 +12,28 @@ namespace game
                 End = true
             };
 
+            var oldState = new State();
+
+            var workerState = new State();
+
+            var adultState = new State();
+
+            var adolenceState = new State();
+
+            var schoolState = new State {
+                Messages = new string[] { "'Estudar' muito ou se 'divertir'" },
+                OptionOne = "estudar",
+                NodeOne = adolenceState,
+                OptionTwo = "divertir",
+                NodeTwo = dieState
+            };
+
             var childhoodState = new State {
                 Messages = new string[]{ "'Brincar' com o palhaço ou andar de 'patinete'?" },
                 OptionOne = "brincar",
                 NodeOne = dieState,
+                OptionTwo = "patinete",
+                NodeTwo = schoolState
             };
 
             var initalState = new State { 
