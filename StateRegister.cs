@@ -61,7 +61,7 @@ namespace game
             };
 
             var initalState = new State { 
-                Messages = new string[]{ ":: Livre arbitrio :: ", "'Sair' da barriga ou 'ficar'" }, 
+                Messages = new string[]{ ":: Life is undefined :: ", "'Sair' da barriga ou 'ficar'" }, 
                 OptionOne = "sair",
                 NodeOne = childhoodState,
                 OptionTwo = "ficar",
