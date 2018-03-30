@@ -14,7 +14,13 @@ namespace game
 
             var oldState = new State();
 
-            var workerState = new State();
+            var workerState = new State {
+                Messages = new string[] { "'Trabalhar' muito pedir 'demissão'" },
+                OptionOne = "trabalhar",
+                NodeOne = oldState,
+                OptionTwo = "demissao",
+                NodeTwo = dieState
+            };
 
             var adultState = new State {
                 Messages = new string[] { "'Trabalhar' muito entrar em 'hospicio'" },
