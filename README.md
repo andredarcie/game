@@ -1,1 +1,1 @@
-# game
+# Life is undefined
