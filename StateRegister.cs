@@ -6,67 +6,21 @@ namespace game
     {
         public State Register(){
 
-            var dieState = new State {
-                Messages = new string[]{ "Você morreu!" },
-                NodeOne = new State(),
-                End = true
-            };
+            var dieState = new State(new List<string>{ "Você morreu!" }, new State[]{ new State() }, true);
 
-            var oldState = new State {
-                Messages = new string[] { "'Esperar' a morte tentar ser 'feliz'" },
-                OptionOne = "esperar",
-                NodeOne = dieState,
-                OptionTwo = "feliz",
-                NodeTwo = dieState
-            };
+            var oldState = new State(new List<string>{ "'Esperar' a morte tentar ser 'feliz'" }, new State[]{ dieState, dieState });
 
-            var workerState = new State {
-                Messages = new string[] { "'Trabalhar' muito pedir 'demissão'" },
-                OptionOne = "trabalhar",
-                NodeOne = oldState,
-                OptionTwo = "demissao",
-                NodeTwo = dieState
-            };
+            var workerState = new State(new List<string>{ "'Trabalhar' muito pedir 'demissão'" }, new State[]{ oldState, dieState });
 
-            var adultState = new State {
-                Messages = new string[] { "'Trabalhar' muito entrar em 'hospicio'" },
-                OptionOne = "trabalhar",
-                NodeOne = workerState,
-                OptionTwo = "hospicio",
-                NodeTwo = dieState
-            };
+            var adultState = new State(new List<string>{ "'Trabalhar' muito entrar em 'hospicio'" }, new State[]{workerState, dieState});
 
-            var adolenceState = new State {
-                Messages = new string[] { "Usar 'drogas' ou se tornar 'depressivo'" },
-                OptionOne = "drogas",
-                NodeOne = dieState,
-                OptionTwo = "depressivo",
-                NodeTwo = adultState
-            };
+            var adolenceState = new State(new List<string>{ "Usar 'drogas' ou se tornar 'depressivo'" }, new State[]{dieState, adultState});
 
-            var schoolState = new State {
-                Messages = new string[] { "'Estudar' muito ou se 'divertir'" },
-                OptionOne = "estudar",
-                NodeOne = adolenceState,
-                OptionTwo = "divertir",
-                NodeTwo = dieState
-            };
+            var schoolState = new State(new List<string>{ "'Estudar' muito ou se 'divertir'" }, new State[]{adolenceState, dieState});
 
-            var childhoodState = new State {
-                Messages = new string[]{ "'Brincar' com o palhaço ou andar de 'patinete'" },
-                OptionOne = "brincar",
-                NodeOne = dieState,
-                OptionTwo = "patinete",
-                NodeTwo = schoolState
-            };
+            var childhoodState = new State(new List<string>{ "'Brincar' com o palhaço ou andar de 'patinete'" }, new State[]{dieState, schoolState});
 
-            var initalState = new State { 
-                Messages = new string[]{ ":: Life is undefined :: ", "'Sair' da barriga ou 'ficar'" }, 
-                OptionOne = "sair",
-                NodeOne = childhoodState,
-                OptionTwo = "ficar",
-                NodeTwo = dieState
-            };
+            var initalState = new State(new List<string>{ ":: Life is undefined :: ", "'Sair' da barriga ou 'ficar'" }, new State[]{childhoodState, dieState});
 
             return initalState;
         }

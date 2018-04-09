@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace game
 {
@@ -11,16 +10,27 @@ namespace game
             var player = new Player();
 
             var currentState = stateRegister.Register();
-            while(currentState.NodeOne != null || currentState.NodeTwo != null)
+            while(currentState.States.Length != 0)
             {
                 foreach (var message in currentState.Messages){
                     Console.WriteLine(message);
                 }
 
-                if (currentState.End) return;
+                if (currentState.End) { Console.ReadKey(); return; };
 
-                currentState.Input();
-                currentState = currentState.GetNext();
+                var newState = new State();
+                do {
+                    newState = currentState.GetNext(Console.ReadLine());
+                    if (newState == null)
+                    {
+                        Console.WriteLine("Opção invalida! Digite novamente.");
+                    }
+                    else
+                    {
+                        currentState = newState;
+                    }
+
+                } while (newState == null);
             }
         }
     }
